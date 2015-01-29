@@ -1,7 +1,9 @@
 # Table of Contents
 
 1.0 Project Status Sheets
+
 2.0 Preliminary Project Proposal
+
 3.0 Proposal Document and Presentation Slides
 
 4.0 Software Development Plan
