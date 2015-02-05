@@ -2,8 +2,8 @@
   <nav class="navbar navbar-default navbar-fixed-top" id="navbar">
     <div>
       <div class="navbar-ehader">
-        <a class="navbar-brand" href="#">Mathemagicians</a>
-        <a class="navbar-brand" href="#">About</a>
+        <a class="navbar-brand" href="/">Mathemagicians</a>
+        <a class="navbar-brand" href="/about">About</a>
         <a class="navbar-brand">{{> loginButtons}}</a>
       </div>
     </div>
@@ -16,11 +16,23 @@
 </body>
 
 <!--Templates-->
-<template name="Home">
+<template name="home">
   <div class="row">
     {{#each lessons}}
       {{> lesson}}
     {{/each}}
+  </div>
+</template>
+
+<template name="introduction">
+  <div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/oKuCuplb3JU" allowfullscreen></iframe>
+  </div>
+</template>
+
+<template name="about">
+  <div>
+    LMU Senior Project
   </div>
 </template>
 

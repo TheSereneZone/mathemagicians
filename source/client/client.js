@@ -24,7 +24,15 @@ if (Meteor.isClient) {
 }
 
 Router.route("/", function () {
-  this.render("Home", {
-    data: function () { return Items.findOne({_id: this.params._id}); }
-  });
+  if (!Meteor.userId()) {
+    this.render("Introduction");
+  } else {
+    this.render("Home", {
+      data: function () { return Items.findOne({_id: this.params._id}); }
+    });
+  };
+});
+
+Router.route("/about", function () {
+  this.render("About")
 });
