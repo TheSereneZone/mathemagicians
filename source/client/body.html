@@ -1,7 +1,7 @@
 <body>
   <nav class="navbar navbar-default navbar-fixed-top" id="navbar">
     <div>
-      <div class="navbar-header">
+      <div class="navbar-ehader">
         <a class="navbar-brand" href="#">Mathemagicians</a>
         <a class="navbar-brand" href="#">About</a>
         <a class="navbar-brand">{{> loginButtons}}</a>
@@ -10,12 +10,20 @@
   </nav>
   <div class="row">
     {{#each lessons}}
-        {{> lesson}}
+      {{> lesson}}
     {{/each}}
   </div>
 </body>
 
-<!--Template for Lessons-->
+<!--Templates-->
+<template name="Home">
+  <div class="row">
+    {{#each lessons}}
+      {{> lesson}}
+    {{/each}}
+  </div>
+</template>
+
 <template name="lesson">
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
