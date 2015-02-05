@@ -9,8 +9,15 @@
     </div>
   </nav>
   <div class="row">
-    {{#each lessons}}
-      {{> lesson}}
-    {{/each}}
+    {{#if currentUser}}
+      {{#each lessons}}
+        {{> lesson}}
+      {{/each}}
+    {{else}}
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/oKuCuplb3JU" allowfullscreen></iframe>
+      </div>
+    {{/if}}
   </div>
+  <script src="client.js"></script>
 </body>

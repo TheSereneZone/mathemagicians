@@ -1,7 +1,7 @@
 if (Meteor.isClient) {
   Template.body.helpers({
     /*
-      Client-Side Template
+;      Client-Side Template
     */
     lessons: [
       { url: "https://www.youtube.com/embed/ScMzIvxBSi4", 
@@ -16,21 +16,15 @@ if (Meteor.isClient) {
   });
 
   /*
-    Necessary for user login.
+    User Account Login/Creation
   */
   Accounts.ui.config({
-    passwordSignupFields: "USERNAME_ONLY"
+    passwordSignupFields: "USERNAME_AND_OPTIONAL_EMAIL"
   });
 }
 
 Router.route("/", function () {
-  if (!Meteor.userId()) {
-    this.render("Introduction");
-  } else {
-    this.render("Home", {
-      data: function () { return Items.findOne({_id: this.params._id}); }
-    });
-  };
+    this.render("Home")
 });
 
 Router.route("/about", function () {
