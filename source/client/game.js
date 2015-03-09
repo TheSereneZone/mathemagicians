@@ -1,7 +1,10 @@
 // Initialize Phaser, and create a 400x490px game
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'gameDiv');
 
+var player;
 var platforms;
+
+var blocks;
 
 // Create our 'main' state that will contain the game
 var mainState = {
@@ -10,8 +13,8 @@ var mainState = {
     // Load game assets.
     game.load.image('sky', 'sky.png');
     game.load.image('ground', 'platform.png');
-    game.load.image('star', 'star.png');
-    game.load.spritesheet('yoshi', 'yoshi.png', 32, 32);
+    game.load.spritesheet('binary-block', 'binary-block.png', 36, 36);
+    game.load.spritesheet('yoshi', 'yellow-yoshi-kid.png', 40, 43);
   },
 
   create: function() {  
@@ -58,46 +61,52 @@ var mainState = {
     player.body.gravity.y = 300;
     player.body.collideWorldBounds = true;
  
-    //  Our two animations, walking left and right.
-    player.animations.add('left', [0, 1, 2, 3], 10, true);
-    player.animations.add('right', [0, 1, 2, 3], 10, true);
+    //  Player animations
+    player.animations.add('left', [0, 1, 2], 10, true);
+    player.animations.add('right', [0, 1, 2], 10, true);
+    player.animations.add('jump', [3], 10, true);
+
+    //  Block
+    blocks = game.add.group();
+    blocks.enableBody = true;
+    var block = blocks.create(150, game.world.height - 200, 'binary-block');
+    block.body.immovable = true;
 
     cursors = game.input.keyboard.createCursorKeys();
   },
 
   update: function() {  
-    //  Collide the player and the stars with the platforms
+    //  Collisions
     game.physics.arcade.collide(player, platforms);
+    game.physics.arcade.collide(player, blocks);
 
     //  Reset the players velocity (movement)
     player.body.velocity.x = 0;
  
-    if (cursors.left.isDown)
-    {
+    if (cursors.left.isDown) {
         //  Move to the left
         player.body.velocity.x = -150;
  
         player.animations.play('left');
-    }
-    else if (cursors.right.isDown)
-    {
+    } else if (cursors.right.isDown) {
         //  Move to the right
         player.body.velocity.x = 150;
  
         player.animations.play('right');
-    }
-    else
-    {
+    } else {
         //  Stand still
         player.animations.stop();
  
-        player.frame = 4;
+        player.frame = 6;
     }
     
     //  Allow the player to jump if they are touching the ground.
-    if (cursors.up.isDown && player.body.touching.down)
-    {
+    if (player.body.touching.down) {
+      if (cursors.up.isDown) {
         player.body.velocity.y = -350;
+      }
+    } else {
+      player.animations.play('jump');
     }
   },
 
