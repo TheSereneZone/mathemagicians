@@ -64,13 +64,15 @@ var mainState = {
     //  Player animations
     player.animations.add('left', [0, 1, 2], 10, true);
     player.animations.add('right', [0, 1, 2], 10, true);
-    player.animations.add('jump', [3], 10, true);
+    player.animations.add('jump', [7], 10, true);
 
     //  Block
     blocks = game.add.group();
     blocks.enableBody = true;
     var block = blocks.create(150, game.world.height - 200, 'binary-block');
     block.body.immovable = true;
+
+    block.animations.add('flip', [0, 1], 10, true);
 
     cursors = game.input.keyboard.createCursorKeys();
   },
@@ -97,7 +99,7 @@ var mainState = {
         //  Stand still
         player.animations.stop();
  
-        player.frame = 6;
+        player.frame = 3;
     }
     
     //  Allow the player to jump if they are touching the ground.
@@ -109,6 +111,15 @@ var mainState = {
       player.animations.play('jump');
     }
   },
+
+  flipBlock: function (player, block) {
+    if (block.frame === 0) {
+      block.frame = 1;
+    } else {
+      block.frame = 0;
+    }
+  },
+
 
   // Restart the game
   restartGame: function() {  
