@@ -1,4 +1,4 @@
-// Initialize Phaser, and create a 400x490px game
+// Initialize Phaser, and create a 800x600px game
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'gameDiv');
 
 var player;
@@ -71,8 +71,6 @@ var mainState = {
     blocks.enableBody = true;
     var block = blocks.create(150, game.world.height - 200, 'binary-block');
     block.body.immovable = true;
-
-    block.animations.add('flip', [0, 1], 10, true);
 
     cursors = game.input.keyboard.createCursorKeys();
   },
