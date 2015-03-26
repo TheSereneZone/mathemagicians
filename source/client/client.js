@@ -30,3 +30,7 @@ Router.route("/", function () {
 Router.route("/about", function () {
   this.render("About")
 });
+
+Router.route("/game", function () {
+  this.render("Game")
+});

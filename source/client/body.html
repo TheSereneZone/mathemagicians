@@ -2,19 +2,13 @@
   <nav class="navbar navbar-default navbar-fixed-top" id="navbar">
     <div>
       <div class="navbar-header">
-        <a class="navbar-brand" href="#"><img alt="Brand" src="icon.png" class="img-responsive"></a>
+        <a class="navbar-brand" href="/"><img alt="Brand" src="icon.png" class="img-responsive"></a>
         <a class="navbar-brand" href="/">Yoshi Mega Math</a>
         <a class="navbar-brand" href="/about">About</a>
+        <a class="navbar-brand" href="/game">Game</a>
         <a class="navbar-brand navbar-right">{{> loginButtons}}</a>
       </div>
     </div>
   </nav>
-  <div class="row">
-    {{#if currentUser}}
-      <div id='gameDiv'></div>
-    {{else}}
-      {{subject}}
-    {{/if}}
-  </div>
   <script src="client.js"></script>
 </body>
