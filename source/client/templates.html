@@ -1,29 +1,81 @@
 <!--Templates-->
 <template name="home">
   <div class="row">
-    <h1><center>Welcome!</center></h1>
+    {{#if currentUser}}
+      {{> subjects}}
+    }
+    }
+    {{else}}
+      <h1><center>Welcome!</center></h1>
+    {{/if}}
   </div>
 </template>
 
 <template name="about">
   <div>
-    LMU Senior Project
+    Yoshi Mega Math was developed by Zoey Ho for the LMU Individual Solo Project in Spring 2015.
   </div>
 </template>
 
-<template name="subject">
-  <div id="gameDiv"></div>
+<template name="subjects">
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Binary
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        Placeholder text.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Geometry
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        Placeholder text.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Complex Variables
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        Placeholder text.
+      </div>
+    </div>
+  </div>
+</div>
 </template>
 
-<template name="lesson">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src={{url}} allowfullscreen></iframe>
-      </div>
-      <div class="caption">
-        <h3>{{title}}</h3>
-        <p>{{description}}</p>
+<template name="subject">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          {{title}}
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        {{description}}
       </div>
     </div>
   </div>
