@@ -2,6 +2,10 @@ body {
   padding-top: 70px;
 }
 
+.container-fluid {
+  background-color: #BBEEEE;
+}
+
 .navbar-brand {
   font-weight: bold;
 }
