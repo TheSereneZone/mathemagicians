@@ -73,13 +73,16 @@
         var block = blocks.create(150, game.world.height - 200, 'binary-block');
         block.body.immovable = true;
 
+        block = blocks.create(300, game.world.height - 200, 'binary-block');
+        block.body.immovable = true;
+
         cursors = game.input.keyboard.createCursorKeys();
       },
 
       update: function() {  
         //  Collisions
         game.physics.arcade.collide(player, platforms);
-        game.physics.arcade.collide(player, blocks);
+        game.physics.arcade.collide(player, blocks, this.flipBlock);
 
         //  Reset the players velocity (movement)
         player.body.velocity.x = 0;

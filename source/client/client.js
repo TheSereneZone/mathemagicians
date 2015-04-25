@@ -3,14 +3,13 @@ if (Meteor.isClient) {
     /*
 ;      Client-Side Template
     */
-    lessons: [
-      { url: "https://www.youtube.com/embed/ScMzIvxBSi4", 
-        title: "Lesson One",
-        description: "Derpodile was here."
+
+    subject: [
+      { title: "Binary",
+        description: "Placeholder."
       },
-      { url: "https://www.youtube.com/embed/XQu8TTBmGhA", 
-        title: "Lesson Two",
-        description: "Cher Ami is a bird."
+      { title: "Geometry",
+        description: "Placeholder"
       }
     ]
   });
@@ -24,11 +23,13 @@ if (Meteor.isClient) {
 }
 
 Router.route("/", function () {
-    this.render("Home")
+  this.render("Home")
+  game.destroy()
 });
 
 Router.route("/about", function () {
   this.render("About")
+  game.destroy()
 });
 
 Router.route("/game", function () {
