@@ -1,10 +1,11 @@
 <!--Templates-->
 <template name="home">
   <div class="row">
+    <h2>Subjects</h2>
+  </div>
+  <div class="row">
     {{#if currentUser}}
       {{> subjects}}
-    }
-    }
     {{else}}
       <h1><center>Welcome!</center></h1>
     {{/if}}
@@ -12,8 +13,13 @@
 </template>
 
 <template name="about">
-  <div>
-    Yoshi Mega Math was developed by Zoey Ho for the LMU Individual Solo Project in Spring 2015.
+  <div class="row">
+    <h2>About the Creator</h2>
+    <p>Zoey Ho is an aspiring high school mathematics teacher.</p>
+  </div>
+  <div class="row">
+    <h2>Tools Used</h2>
+    <p>Yoshi Mega Math was built primarily using Metoer.JS and Phaser.</p>
   </div>
 </template>
 
@@ -29,11 +35,16 @@
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
-        <p>Placeholder text.</p>
+        <div class="col-md-9">
+          <p>Binary is a number system that represents numeric values with only two symbols: 0 and 1. Contrast this with decimal, the number system most people are familiar with, which has ten symbols.</p>
+        </div>
+        <div class="col-md-1"></div>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-          Launch Game
-        </button>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            Launch Game
+          </button>
+        </div>
 
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -65,7 +76,34 @@
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body">
-        Placeholder text.
+        <div class="col-md-9">
+          <p>Geometry does shapes and stuff.</p>
+        </div>
+        <div class="col-md-1"></div>
+        <!-- Button trigger modal -->
+        <div class="col-md-2">
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            Launch Game
+          </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Binary</h4>
+              </div>
+              <div class="modal-body">
+                Placeholder
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -79,7 +117,34 @@
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body">
-        Placeholder text.
+        <div class="col-md-9">
+          <p>Complex numbers are an expansion upon the set of real numbers. The most commonly known example is the imaginary number i, the square root of -1.</p>
+        </div>
+        <div class="col-md-1"></div>
+        <!-- Button trigger modal -->
+        <div class="col-md-2">
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            Launch Game
+          </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Binary</h4>
+              </div>
+              <div class="modal-body">
+                Placeholder
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -49,10 +49,9 @@
      
         ledge.body.immovable = true;
 
-        // The player and its settings
         player = game.add.sprite(32, game.world.height - 150, 'yoshi');
 
-        player.anchor.y=1;
+        player.anchor.y = 1;
      
         //  We need to enable physics on the player
         game.physics.arcade.enable(player);
@@ -114,20 +113,15 @@
         }
       },
 
-      flipBlock: function (player, block) {
-        if (block.frame === 0) {
-          block.frame = 1;
-        } else {
-          block.frame = 0;
-        }
+      flipBlock: function(player, block) {
+        block.frame = (block.frame) ? 0 : 1;
       },
-
 
       // Restart the game
       restartGame: function() {  
         // Start the 'main' state, which restarts the game
         game.state.start('main');
-      },
+      }
     };
 
     // Add and start the 'main' state to start the game
