@@ -1,11 +1,28 @@
 body {
-  padding-top: 70px;
+  padding-top: 50px;
 }
 
 .container-fluid {
   background-color: #BBEEEE;
 }
 
+h2 {
+	text-decoration: underline;
+}
+
 .navbar-brand {
   font-weight: bold;
+  text-decoration: underline;
+}
+
+.panel-default {
+	background-color: #BBEEEE;
+}
+
+.panel-title {
+  font-weight: bold;
+}
+
+.row {
+	padding-left: 20px;
 }
