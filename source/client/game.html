@@ -12,7 +12,7 @@
 
       preload: function() {
         // Load game assets.
-        game.load.image('sky', 'sky.png');
+        game.load.image('background', 'background.png');
         game.load.image('ground', 'platform.png');
         game.load.spritesheet('binary-block', 'binary-block.png', 36, 36);
         game.load.spritesheet('yoshi', 'yellow-yoshi-kid.png', 40, 43);
@@ -23,7 +23,7 @@
         game.physics.startSystem(Phaser.Physics.ARCADE);
      
         //  A simple background for our game
-        game.add.sprite(0, 0, 'sky');
+        game.add.sprite(0, 0, 'background');
      
         //  The platforms group contains the ground and the 2 ledges we can jump on
         platforms = game.add.group();
@@ -39,15 +39,6 @@
      
         //  This stops it from falling away when you jump on it
         ground.body.immovable = true;
-     
-        //  Now let's create two ledges
-        var ledge = platforms.create(400, 400, 'ground');
-     
-        ledge.body.immovable = true;
-     
-        ledge = platforms.create(-150, 250, 'ground');
-     
-        ledge.body.immovable = true;
 
         player = game.add.sprite(32, game.world.height - 150, 'yoshi');
 
@@ -66,13 +57,19 @@
         player.animations.add('right', [0, 1, 2], 10, true);
         player.animations.add('jump', [7], 10, true);
 
-        //  Block
+        // Place the binary blocks
         blocks = game.add.group();
         blocks.enableBody = true;
-        var block = blocks.create(150, game.world.height - 200, 'binary-block');
+        var block = blocks.create(150, game.world.height - 250, 'binary-block');
         block.body.immovable = true;
 
-        block = blocks.create(300, game.world.height - 200, 'binary-block');
+        block = blocks.create(300, game.world.height - 250, 'binary-block');
+        block.body.immovable = true;
+
+        block = blocks.create(450, game.world.height - 250, 'binary-block');
+        block.body.immovable = true;
+
+        block = blocks.create(600, game.world.height - 250, 'binary-block');
         block.body.immovable = true;
 
         cursors = game.input.keyboard.createCursorKeys();
@@ -106,7 +103,7 @@
         //  Allow the player to jump if they are touching the ground.
         if (player.body.touching.down) {
           if (cursors.up.isDown) {
-            player.body.velocity.y = -350;
+            player.body.velocity.y = -300;
           }
         } else {
           player.animations.play('jump');
